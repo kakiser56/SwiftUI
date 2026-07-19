@@ -83,20 +83,34 @@ sumPowers(n:0, power:-1)
 // Counting occurences
 func countOccurences(list: [Int], countMe: Int) -> (occurences: Int, msg: String)
 {
+    var cnt = 0
+    var msg = ""
     if list.contains(countMe) {
-        var cnt = 0
         for i in list {
             if i == countMe {
                 cnt += 1
             }
         }
-        return (cnt, "Found")
+        msg = "\(countMe) appears on the list \(cnt) times"
     } else {
-        return (0, "Not found")
+        msg = "\(countMe) does not appear on the list"
     }
+    return (cnt, msg)
 }
 
 print(countOccurences(list: [1001, 11, 10, -3, 11, -3], countMe: 1000))
 print(countOccurences(list: [1001, 11, 10, -3, 11, -3], countMe: -3))
 
+func repChar(n:Int, ch:String) -> String {
+    return String(repeating: ch,count: n)
+}
+
+func repCharStroke(n:Int, ch:String = "*") -> String {
+        return repChar(n: n, ch: ch)
+}
+
+
+
+print(repChar(n: 5, ch: "*"))
+print(repCharStroke(n: 15))
 
